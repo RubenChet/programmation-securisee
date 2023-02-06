@@ -6,10 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- avis_server
-- static files ( CSS and Media )
-- templates (avis.html, base.html, index.html)
-- app.py (flask server with base route and avis route)
+- avis_server folder
+- static files ( CSS and Media ) in avis_server folder
+- templates (avis.html, base.html, index.html) in avis_server folder
+- app.py (flask server with base route and avis route) in avis_server folder
 
 ### Changed
 
