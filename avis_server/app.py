@@ -4,9 +4,7 @@ Develop the power of Flask and Jinja by creating HTML templates,
 expending those templates, and pass variable to create dynamic content.
 """
 
-import datetime  # import a library to manage dates
-
-import flask  # import the flask library
+import flask # import the flask library
 
 app = flask.Flask(__name__)  # instantiate a minimal webserver
 
@@ -19,18 +17,11 @@ def index():
 
     return flask.render_template('index.html')
 
-
-@app.route('/time/')  # create a new route
-def time():
-    now = datetime.datetime.now()
-    date = now.strftime('%d/%m/%Y')
-    hour = now.strftime('%H:%M')
-
-    # we can pass some data to the template to create dynamic content
-    # to create variables inside the template, use keywords arguments with
-    # name=value
-    return flask.render_template('time.html', date=date, hour=hour)
-
+@app.route('/avis/', methods=['POST'])  # create the avis route with POST method
+def avis():
+    username = flask.request.form['user_name'] # get the username from the form
+    avis = flask.request.form['user_avis'] # get the avis from the form
+    return flask.render_template('avis.html', username=username, avis=avis) # render the avis.html template with the username and avis variables
 
 if __name__ == '__main__':  # consider this line as the main
     app.run('0.0.0.0', 8080, debug=True)  # start web server in debug mode on port 8080
